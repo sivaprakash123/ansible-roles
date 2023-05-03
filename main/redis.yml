@@ -1,0 +1,17 @@
+---
+- name: Configure common things
+  hosts: all
+  roles:
+    - ./roles/redis-cluster/common
+
+- name: Configure master node
+  hosts: master
+  roles:
+    - ./roles/redis-cluster/master
+
+- name: Configure master node
+  hosts: slave
+  roles:
+    - ./roles/redis-cluster/slave
+
+

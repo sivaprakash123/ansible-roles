@@ -1,0 +1,9 @@
+---
+- hosts: jenkins_hosts
+  become: yes
+  roles:
+    - ./roles/ansible-java-8
+    - ./roles/geerlingguy.jenkins
+
+
+

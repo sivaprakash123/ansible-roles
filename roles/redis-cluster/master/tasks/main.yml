@@ -1,0 +1,15 @@
+---
+- name: Install redis ruby gem for redis-trib.rb
+  become: yes
+  gem: name=redis state=latest
+
+- name: Create initialization script
+  become: yes
+  template: src=master.j2 dest=/etc/redis/redis.conf
+
+- name: Restrat service
+  become: yes
+  shell: service redis-server restart
+
+#- name: Initialize cluster
+#  shell: bash /root/initialize_cluster.sh
